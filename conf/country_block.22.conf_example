@@ -1,0 +1,9 @@
+# list of countries to block.
+# <- comment
+# country-code, _lowercase_.
+#  WARNING. port 80 (Web), if you block US you might block some search-engine (google,...).
+# examples
+#cn
+#br
+#ua
+cn
