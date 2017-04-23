@@ -37,7 +37,7 @@ for PORT in $(find "$CONFDIR" -name "country_block.*.conf" | cut -c2-100 | awk -
     fi       
     LINES=$(wc -l "/tmp/$ZONE")
     logger "...($LINES) loaded."
-    < "/tmp/$ZONE" | while read IP 
+    cat "/tmp/$ZONE" | while read IP 
     do
       # regular ban - block port $PORT for IPs of countryXX
       sudo ipset add geoblock "$IP,$PORT" #&3> /dev/null 
