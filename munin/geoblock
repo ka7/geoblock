@@ -1,0 +1,50 @@
+#!/bin/sh
+# -*- sh -*-
+
+: << =cut
+
+=head1 NAME
+
+geoblock - Plugin to graph number of ipset rules loaded
+
+=head1 CONFIGURATION
+
+This plugin uses the following configuration variables
+
+ [geoblock]
+  user root
+
+=head1 AUTHOR
+
+ka7 @github.com
+
+=head1 LICENSE
+
+GPLv3
+
+=head1 MAGIC MARKERS
+
+ #%# family=auto
+ #%# capabilities=autoconf
+
+=cut
+
+
+if [ "$1" = "autoconf" ]; then
+	echo yes
+	exit 0
+fi
+
+if [ "$1" = "config" ]; then
+
+	echo 'graph_title geoblock - number or rules loaded'
+	echo 'graph_order geoblock'
+	echo 'graph_vlabel number or geoblock rules'
+	echo 'graph_category network'
+	echo 'geoblock.label geoblock'
+	exit 0
+fi
+
+# Append /. to directory to force following symlinks at the start
+# point.
+echo "geoblock.value $(ipset list geoblock)"
