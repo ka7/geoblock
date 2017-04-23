@@ -47,4 +47,4 @@ fi
 
 # Append /. to directory to force following symlinks at the start
 # point.
-echo "geoblock.value $(ipset list geoblock)"
+echo "geoblock.value $(ipset list geoblock|wc -l)"
